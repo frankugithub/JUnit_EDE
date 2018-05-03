@@ -1,0 +1,64 @@
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class SimpleCalculatorTest {
+
+    @Test
+    public void Add() {
+        float n1 = 7;
+        float n2 = 6;
+        float expected = 13;
+        float actual;
+        actual = this.calculator.add(n1, n2);
+        assertEquals(expected, actual, 0.000);
+    }
+
+    @Test
+    public void subtract(){
+        float n1 = 7;
+        float n2 = 6;
+        float expected = 1;
+        float actual;
+        actual = this.calculator.subtract(n1,n2);
+        assertEquals(expected, actual,0.000);
+    }
+
+    @Test
+    public void multiply(){
+        float n1 = 7;
+        float n2 = 6;
+        float expected = 42;
+        float actual;
+        actual = this.calculator.multiply(n1,n2);
+        assertEquals(expected, actual,0.000);
+    }
+
+    @Test
+    public void divideOne() throws ArithmeticException {
+        float n1 = 7;
+        float n2 = 6;
+        float expected = 1.1666666269302368f;
+        float actual;
+        actual = this.calculator.divide(n1,n2);
+        assertEquals(expected, actual,0.000);
+    }
+
+    @Test (expected = Exception.class)
+    public void divideTwo() throws ArithmeticException {
+        float n1 = 7;
+        float n2 = 0;
+        float actual;
+        actual = this.calculator.divide(n1,n2);
+
+    }
+
+
+    private SimpleCalculator calculator;
+    @Before
+    public void setUp() {
+        this.calculator = new SimpleCalculator();
+    }
+}
