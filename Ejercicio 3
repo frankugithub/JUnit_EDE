@@ -1,0 +1,40 @@
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class EmployeeTest {
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @Test
+    public void getEmpNameWithHighestSalary() throws Exception {
+        String expected = "Marina";
+
+        assertEquals(expected,Employee.getEmpNameWithHighestSalary());
+    }
+
+    @Test
+    public void getHighestPaidEmployee() throws Exception {
+        assertEquals(Employee.getEmpNameWithHighestSalary(),Employee.getHighestPaidEmployee().getName());
+    }
+
+    @Test
+    public void getName() throws Exception {
+        assertEquals(Employee.getHighestPaidEmployee().getName(),"Paco");
+    }
+
+    @Test
+    public void getEmpId() throws Exception {
+        assertEquals(Employee.getHighestPaidEmployee(),23);
+    }
+
+    @Ignore
+    @Test
+    public void getSalary() throws Exception {
+        assertEquals(Employee.getHighestPaidEmployee().getSalary(),30000);
+    }
+
+}
