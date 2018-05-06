@@ -1,0 +1,22 @@
+
+    //EJERCICIO 4
+
+    @Test
+    public void testEsPar() throws Exception {
+        int numPar1 = 4;
+        int numPar2 = 6;
+        boolean expected = true;
+
+        assertTrue(this.calculator.isEvenNumber(numPar1) == expected);
+        assertTrue(this.calculator.isEvenNumber(numPar2) == expected);
+    }
+
+    @Test
+    public void testEsImpar() throws Exception {
+        int numImpar1 = 5;
+        int numImpar2 = 7;
+        boolean expected = false;
+
+        assertTrue(this.calculator.isEvenNumber(numImpar1) == expected);
+        assertTrue(this.calculator.isEvenNumber(numImpar2) == expected);
+    }
