@@ -1,0 +1,44 @@
+
+    //EJERCICIO 5
+    
+// Se que el ejercicio no pide que muestre nada, sólo que haga el test, pero me he dado cuenta de que el "assertTrue"
+// no devuelve información sobre lo que está pásando internamente en el test. Me parece útil incluir este "log" para saberlo.
+
+// Si tuviera acceso al map podría comprobar primero si la key existe en el map y hacer un reporte más preciso.
+// Ya se que no lo pide el ejercicio, pero el esquizofrénico que llevo dentro se se tira de los pelos al ver que no estoy comprobando eso
+   
+   @Test
+    public void claveTieneValor() throws Exception {
+        int[] numeroClave = {3,5,9};
+        boolean pasaTest = true;
+
+        for (int i = 0; i < numeroClave.length; i++) {
+
+            String clave = "key" + numeroClave[i];
+            String comprobado = this.calculator.getPropValue(clave);
+
+            if (comprobado != null) {
+                System.out.println("La clave \"" + clave + "\" tiene un valor de \"" + comprobado + "\".");
+            } else {
+                System.out.println("La clave \"" + clave + "\" no tiene valor asociado.");
+                pasaTest = false;
+            }
+        }
+        assertTrue(pasaTest); 
+    }
+    
+
+    @Test
+    public void valoresIguales() throws Exception {
+        int numeroClave1 = 1;
+        int numeroClave2 = 2;
+
+        String clave1 = "key" + numeroClave1;
+        String clave2 = "key" + numeroClave2;
+
+        String comprobante1 = this.calculator.getPropValue(clave1);
+        String comprobante2 = this.calculator.getPropValue(clave2);
+
+        assertEquals(comprobante1, comprobante2);
+    }
+}
