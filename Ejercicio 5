@@ -27,6 +27,16 @@
         assertTrue(pasaTest); 
     }
     
+//modificacion para simplificar la comprobacion
+
+    @Test
+    public void claveTieneValorDos() throws Exception {
+        int numeroClave = 9;
+        String clave = "key" + numeroClave;
+
+        assertTrue(this.calculator.getPropValue(clave) != null);
+    }
+    
 
     @Test
     public void valoresIguales() throws Exception {
