@@ -1,0 +1,113 @@
+//EJERCICIO 7
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void patronesUnoVacio() throws Exception {
+        // Debe de darme esta excepcion porque al estar el patron vacion no anyade nada a la lista, por lo que su size es 0
+        // y al tratar de obtener el valor del indice 0 da ese error.
+
+        String cadenaAComprobar = "";
+        SimpleCalculator.captureItemsBetweenDashes(cadenaAComprobar).get(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void patronesDosVacio() throws Exception {
+        //la misma situacion que en el anterios
+
+        String cadenaAcomprobar = "-";
+        SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar).get(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void patronesTresVacio() throws Exception {
+        //la misma situacion que en el anterios
+
+        String cadenaAcomprobar = "--";
+        SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar).get(0);
+    }
+
+    @Test
+    public void patronesCuatroUno() throws Exception {
+        // En esta ocasion si debe de introducir un valor en la lista, por lo que no se espera ninguna excepcion.
+        // Tambien debo comprobar que el valor obtenido es el correcto y la longitud de la lista
+
+        String cadenaAcomprobar = "-1-";
+        String expected = "1";
+        int longitudExpected = 1;
+
+        List<String> lista = SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar);
+        String actual = lista.get(0);
+        int logitudActual = lista.size();
+
+        assertEquals(actual,expected);
+        assertTrue(logitudActual==longitudExpected);
+    }
+
+    @Test
+    public void patronesCincoUno() throws Exception {
+        // Igual que el anterior
+
+        String cadenaAcomprobar = "-1--";
+        String expected = "1";
+        int longitudExpected = 1;
+
+        List<String> lista = SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar);
+        String actual = lista.get(0);
+        int logitudActual = lista.size();
+
+        assertEquals(actual,expected);
+        assertTrue(logitudActual==longitudExpected);
+    }
+
+    @Test
+    public void patronesSeisDos() throws Exception {
+        // Masde lo mismo
+
+        String cadenaAcomprobar = "--2-";
+        String expected = "2";
+        int longitudExpected = 1;
+
+        List<String> lista = SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar);
+        String actual = lista.get(0);
+        int logitudActual = lista.size();
+
+        assertEquals(actual,expected);
+        assertTrue(logitudActual==longitudExpected);
+    }
+
+    @Test
+    public void patronesSieteAaa() throws Exception {
+        // Tu ya lo sabeh
+
+        String cadenaAcomprobar = "1-aaa-3";
+        String expected = "aaa";
+        int longitudExpected = 1;
+
+        List<String> lista = SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar);
+        String actual = lista.get(0);
+        int logitudActual = lista.size();
+
+        assertEquals(actual,expected);
+        assertTrue(logitudActual == longitudExpected);
+    }
+
+    @Test
+    public void patronesOchoAaa() throws Exception {
+        // Este es un poco mas complicado por que el metodo va a devolver dos valores, el 1 y el 3.
+        // tengo qeu decir que he tenido que pararme a estudiar un poco el codigo e investigar acerca de la clase Pattern
+        // para entender que es lo que hace el metodo y ver porque devuelve 1 y 3, y desecha aaa. (Lo hace porque el matcher
+        // desecha los guiones interiores, por lo que aaa queda fuera del rango del patron)([^-] = cualquier cosa menos -).
+
+        String cadenaAcomprobar = "-1-aaa-3-";
+        String expected1 = "1";
+        String expected2 = "3";
+        int longitudExpected = 2;
+
+        List<String> lista = SimpleCalculator.captureItemsBetweenDashes(cadenaAcomprobar);
+        String actual1 = lista.get(0);
+        String actual2 = lista.get(1);
+        int logitudActual = lista.size();
+
+        assertEquals(actual1,expected1);
+        assertEquals(actual2,expected2);
+        assertTrue(logitudActual == longitudExpected);
+    }
