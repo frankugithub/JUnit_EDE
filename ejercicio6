@@ -1,0 +1,86 @@
+//EJERCICIO 6
+
+    @Test
+    public void compruebaSalida0() throws Exception {
+        int exponent = 0;
+        // En este test he tratado de hacerlo generico para que pasandole el valor del exponente me haga el test de manera automatica
+        // Para poder hacer esto se necesita guardar el valor del resultado esperado en una variable.
+        // Obviamente esta variable podria ser un String en el que le pasas manualmente el valor, pero he querido ir mas
+        // lejos hacer que el valor lo calcule directametne tambien. De este modo solo hay que introducir el valor del
+        // exponente como ya he dicho.
+        // La principal virtud de hacerlo asi, ademas de la comodidad, es que puedes estar confiado de que el resultado esperado es correcto.
+        // Mis companyeros has puesto el valor manualmente copiandolo del reporte que te da el error del asserEquals.
+        // Este reporte estara mal si el metodo no funciona como debe, puesto que es el metodo el que lo calcula. Creo que
+        // ninguno de ellos se ha dado cuenta de esto. Conviene que se lo recuerdes XD.
+
+        BigInteger resultado = new BigInteger("1");
+        for (int i = 0; i < exponent ; i++) {
+            resultado = resultado.multiply(new BigInteger("2"));
+        }
+        BigInteger actual = new BigInteger(SimpleCalculator.povOf2(exponent));
+
+        //Estas dos lineas muestan los valores de las variables
+        System.out.println("ESPERADO: " + resultado);
+        System.out.println("ACTUAL: " + actual);
+
+        assertTrue(actual.equals(resultado));
+    }
+
+    @Test
+    public void compruebaSalida1() throws Exception {
+        int exponent = 1;
+        BigInteger resultado = new BigInteger("1");
+        for (int i = 0; i < exponent ; i++) {
+            resultado = resultado.multiply(new BigInteger("2"));
+        }
+        BigInteger actual = new BigInteger(SimpleCalculator.povOf2(exponent));
+
+        System.out.println("ESPERADO: " + resultado);
+        System.out.println("ACTUAL: " + actual);
+
+        assertTrue(actual.equals(resultado));
+    }
+
+    @Test
+    public void compruebaSalida5() throws Exception {
+        int exponent = 5;
+        BigInteger resultado = new BigInteger("1");
+        for (int i = 0; i < exponent ; i++) {
+            resultado = resultado.multiply(new BigInteger("2"));
+        }
+        BigInteger actual = new BigInteger(SimpleCalculator.povOf2(exponent));
+
+        System.out.println("ESPERADO: " + resultado);
+        System.out.println("ACTUAL: " + actual);
+
+        assertTrue(actual.equals(resultado));
+    }
+
+    @Test
+    public void compruebaSalida6() throws Exception {
+        int exponent = 6;
+        BigInteger resultado = new BigInteger("1");
+        for (int i = 0; i < exponent ; i++) {
+            resultado = resultado.multiply(new BigInteger("2"));
+        }
+        BigInteger actual = new BigInteger(SimpleCalculator.povOf2(exponent));
+        System.out.println(resultado);
+        System.out.println(actual);
+
+        assertTrue(actual.equals(resultado));
+    }
+
+    @Test
+    public void compruebaSalida100() throws Exception {
+        int exponent = 100;
+        BigInteger resultado = new BigInteger("1");
+        for (int i = 0; i < exponent ; i++) {
+            resultado = resultado.multiply(new BigInteger("2"));
+        }
+        BigInteger actual = new BigInteger(SimpleCalculator.povOf2(exponent));
+
+        System.out.println("ESPERADO: " + resultado);
+        System.out.println("ACTUAL: " + actual);
+
+        assertTrue(actual.equals(resultado));
+    }
